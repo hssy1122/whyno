@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LACK OF EXERCISE ISLAND</title>
+    <style type="text/css">
+        @font-face {
+            font-family: 'Arita-dotum-Medium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0;
+            background-color: #FFF7F0;
+            cursor: url('wow.png'), auto;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            cursor: none;
+        }
+
+        .col-1, .col-2, .col-3 {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center;
+            z-index: 2;
+        }
+
+        .col-1 {
+            background-image: url('cloud.png');
+        }
+
+        .col-2 {
+            background-image: url('island.png');
+        }
+
+        .col-3 {
+            background-image: url('title1.png');
+        }
+
+        .col-4 {
+            position: absolute;
+            top: 80%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 0px;
+            z-index: 99;
+        }
+
+        #poet {
+            font-size: 35px;
+            color: #FF8181;
+            font-family: 'Arita-dotum-Medium';
+            position: absolute;
+            top: 57%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+        }
+
+        p {
+            font-size: 35px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            z-index: 99;
+            cursor: pointer;
+        }
+
+        svg {
+            fill: #BFCEFF;
+            fill-opacity: 1;
+            position: absolute;
+            bottom: 0;
+            left: -50px;
+            width: 120%;
+            height: auto;
+            transform: translateY(0%);
+            z-index: 3;
+        }
+
+        @keyframes wave {
+            to {
+                d: path('M0,32L40,83.3C80,134.3,160,144,240,134.7C320,125,400,96,480,85.3C560,75,640,85,720,101.3C800,117,880,139,960,144C1040,149,1120,139,1200,128C1280,117,1360,107.7,1400,101.3L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320');
+            }
+        }
+
+        .path-with-animation {
+            animation: wave 2s infinite alternate;
+        }
+    </style>
+</head>
+<body style="cursor: url('wow.png'), auto;">
+    <div class="col-1"></div>
+    <div class="col-2"></div>
+    <div class="col-3"></div>
+    <div class="col-4">
+        <p id="clickText"><strong>바다를 클릭해주세요</strong></p>
+    </div>
+
+    <div id="poet"></div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path class="path-with-animation" fill-opacity="1" d="M0,32L40,63.3C80,94.3,160,144,240,154.7C320,165,400,137,480,126.3C560,116,640,124,720,140.3C800,156,880,180,960,185.3C1040,190,1120,178,1200,167C1280,156,1360,146.7,1400,141.3L1440,136L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320"></path>
+    </svg>
+
+    <audio id="clickSound" preload="auto" src="waves.mp3"></audio>
+
+    <script type="text/javascript">
+        var poet = "운동부족의 섬";
+        var poetArr = poet.split(" ");
+        var i = 0;
+        var interval = setInterval(function () {
+            document.getElementById("poet").innerHTML += poetArr[i] + " ";
+            i++;
+            if (i >= poetArr.length) {
+                clearInterval(interval);
+            }
+        }, 400);
+
+        document.getElementById("clickText").onclick = function() {
+            playClickSound();
+            redirectToNewPage();
+        };
+
+        function redirectToNewPage() {
+            window.location.href = "index2.html";
+        }
+
+        function playClickSound() {
+            var clickSound = document.getElementById("clickSound");
+            clickSound.play();
+        }
+    </script>
+</body>
+</html>

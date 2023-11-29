@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LACK OF EXERCISE ISLAND</title>
+    <style>
+        @font-face {
+            font-family: 'Arita-dotum-Medium' 'Arita-dotum-Bold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            margin: 0px 0px;
+            background-color: #E3E8FF;
+        }
+
+        svg {
+            fill: #BFCEFF;
+            fill-opacity: 1;
+            position: absolute;
+            bottom: 0;
+            left: -50px;
+            width: 120%;
+            height: auto; 
+            transform: translateY(0%);
+        }
+
+        @keyframes wave {
+            to {
+                d: path('M0,32L40,83.3C80,134.3,160,144,240,134.7C320,125,400,96,480,85.3C560,75,640,85,720,101.3C800,117,880,139,960,144C1040,149,1120,139,1200,128C1280,117,1360,107.7,1400,101.3L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320');
+            }
+        }
+
+        .path-with-animation {
+            animation: wave 2s infinite alternate;
+        }
+
+        #poet {
+            font-size: 35px;
+            color: #4B5B90;
+            line-height: 1.5;
+            font-family: 'Arita-dotum-Medium';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-70%, -70%);
+            text-align: left;
+            height: 400px;
+            width: 800px;
+        }
+
+        #poet strong {
+            font-family: 'Arita-dotum-Bold';
+            font-weight: bold;
+            font-size: 60px;
+            line-height: 2;
+        }
+
+        #poet line {
+            font-family: 'Arita-dotum-Bold';
+            font-weight: bold;
+            font-size: 35px; 
+            line-height: 1.5; 
+        }
+
+        #video-container {
+            position: absolute;
+            top: 85%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+     <path class="path-with-animation" d="M0,32L40,63.3C80,94.3,160,144,240,154.7C320,165,400,137,480,126.3C560,116,640,124,720,140.3C800,156,880,180,960,185.3C1040,190,1120,178,1200,167C1280,156,1360,146.7,1400,141.3L1440,136L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320"></path>
+    </svg>
+
+    <div id="poet"></div>
+
+    <div id="video-container">
+        <video autoplay loop muted playsinline width="100%">
+            <source src="bar.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <script type="text/javascript">
+        var poet = "<strong>운동부족의 <strong>섬 <br>이 섬은 머무는 시간이 길수록 빠져나가기 힘들어지고<br> 너무 오래 머물게 되면 여러 합병증으로 사망 할 수도 있다<br> 섬에서 탈출하기 위해서는 섬 바깥에 떠있는 배를 움직일 수 있는 운동 능력이 필요하다<br><line>요가를 <line>배워서 <line>운동 <line>능력을 <line>키우고 <line>섬에서 <line>탈출하자!</line><br>";
+        var poetArr = poet.split(" ");
+        var i = 0;
+        var interval = setInterval(function () {
+            document.getElementById("poet").innerHTML += poetArr[i] + " ";
+            i++;
+            if (i >= poetArr.length) {
+                clearInterval(interval);
+            }
+        }, 250);
+
+        document.getElementById("p").addEventListener("click", function() {
+            // 클릭 소리 재생
+            document.getElementById("clickSound").play();
+
+            // 페이지 이동 (원하는 URL로 변경)
+            window.location.href = "index2.html";
+        });
+    </script>
+</body>
+</html>
